@@ -1,0 +1,21 @@
+//EMPAT----------------------------------------------------------------------------------------------------
+app.post("/bmi",(req,res)=>{
+    let t = Number(req.body.tinggi)
+    let b = Number(req.body.berat)
+    let bmi = b / (t ** 2)
+    let hasil
+
+    if      (bmi<18.5) {hasil = "kekurangan berat badan"}
+    else if (bmi<=29.9){hasil = "Normal(Ideal)"}
+    else if (bmi<=29.9){hasil = "Kelebihan berat badan0"}
+    else               {hasil = "Kegemukan(Obesitas)"} 
+
+    let out = {
+        tinggi: t,
+        berat: b,
+        bmi: bmi,
+        status: hasil
+    }
+
+    res.json(out)
+})
