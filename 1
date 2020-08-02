@@ -1,0 +1,57 @@
+//SATU-----------------------------------------------------------------------------------------------------
+app.post("/kubus",(req,res)=> {
+    let s = Number(req.body.sisi)
+    let luas = 6 * s * s
+    let volume = s ** 3
+    let response = {
+        bangun = "kubus",
+        sisi = s,
+        luas = luas,
+        volume = volume
+    }
+    res.json(response)
+})
+app.post("/balok",(req,res)=> {
+    let p = Number(req.body.panjang)
+    let l = Number(req.body.lebar)
+    let t = Number(req.body.tinggi)
+    let luas = 2 * (p * l + p  * t + t * l)
+    let volume = p * l * t
+    let response = {
+        bangun = "balok",
+        panjang = p,
+        lebar = l,
+        tinggi = t,
+        luas = luas,
+        volume = volume
+    }
+    res.json(response)
+})
+app.post("/tabung",(req,res)=> {
+    let r = Number(req.body.jari)
+    let t = Number(req.body.tinggi)
+    let luas = 2 * 3.14 * r * (r + t)
+    let volume = 3.14 * r * r * t
+    let response = {
+        bangun = "tabung",
+        jari = r,
+        tinggi = t,
+        luas = luas,
+        volume = volume
+    }
+    res.json(response)
+})
+app.post("/bola",(req,res)=> {
+    let r = Number(req.body.jari)
+
+    let luas = 4 * 3.14 * r * r
+    let volume = 4/3 * 3.14 * r ** 3
+
+    let response = {
+        bangun:"Bola",
+        jari: r,
+        luas: luas,
+        volume:volume
+    }
+    res.json(response)
+})
