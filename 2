@@ -1,0 +1,70 @@
+//DUA------------------------------------------------------------------------------------------------------
+app.get("/convert/:satuan/:suhu",(req,res)=> {
+    let y = req.params.satuan
+    let x = req.params.suhu
+    let c, r, f, k, response
+
+    if(y === "celcius"){
+        let cn = Number(x)
+        r = 4/5*cn
+        f = 9/5*cn
+        k = cn+273
+        response = {
+            celcius: x,
+            result: {
+                reamur: r,
+                fahrenheit: f,
+                kelvin: k
+            }
+        }
+
+    }else if(y === "reamur"){
+        let rn = Number(x)
+        c = 5/4*rn
+        f = 9/4*rn+32
+        k = 5/4*rn+273
+        response = {
+            reamur: x,
+            result: {
+                celcius:c,
+                fahrenheit: f,
+                kelvin:k
+            }
+        }
+
+    }else if(y == "kelvin"){
+        let kn = Number(x)
+        c = kn-273
+        r = 4/5*(kn-273)
+        f =  9/5*(kn-273)+32
+        response = {
+            kelvin: x,
+            result: {
+                celcius: c,
+                reamur: r,
+                fahrenheit:f
+            }
+        }
+
+    }else if(y == "fahrenheit"){
+        let fn = Number(x)
+        c = 5/9*(fn-32)
+        r = 4/9*(fn-32)
+        k =  5/9*(fn-32)+273
+        response = {
+            fahrenheit:x,
+            result: {
+                celcius: c,
+                reamur: r,
+                kelvin:k
+            }
+        }
+
+    }else {
+        response = {
+            pesan:"failed"
+        }
+    }
+    res.json(response)
+})
+
