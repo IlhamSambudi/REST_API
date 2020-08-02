@@ -1,0 +1,58 @@
+//TIGA-----------------------------------------------------------------------------------------------------
+app.post("/desimal",(req,res)=>{
+    let des = Number(req.body.num)
+    let bin = des.toString(2)
+    let oct = des.toString(8)
+    let hex = des.toString(16)  
+    
+    let hsl = {
+        from: "desimal",
+        nilai: des,
+        biner: bin,
+        octal: oct,
+        hexadesimal: hex
+    }
+    res.json(hsl)
+})
+app.post("/biner",(req,res)=>{
+    let bin = Number(req.body.num)
+    let des = des.toString(10)
+    let oct = des.toString(8)
+    let hex = des.toString(16)  
+    let hsl = {
+        from: "biner",
+        nilai: bin,
+        desimal : des,
+        octal: oct,
+        hexadesimal: hex
+    }
+    res.json(hsl)
+})
+app.post("/octa",(req,res)=>{
+    let oct = Number(req.body.num)
+    let des = des.toString(10)
+    let bin = des.toString(2)
+    let hex = des.toString(16)  
+    let hsl = {
+        from: "octa",
+        nilai: oct,
+        desimal : des,
+        biner: bin,
+        hexadesimal: hex
+    }
+    res.json(hsl)
+})
+app.post("/hexa",(req,res)=>{
+    let hex = Number(req.body.num)
+    let des = des.toString(10)
+    let bin = des.toString(2)
+    let oct = des.toString(8)  
+    let hsl = {
+        from: "hexa",
+        nilai: hex,
+        desimal : des,
+        biner: bin,
+        octa: oct
+    }
+    res.json(hsl)
+})
